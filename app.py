@@ -15,8 +15,6 @@ from langchain.prompts import MessagesPlaceholder
 # .envファイルの内容を環境変数に設定
 load_dotenv()
 
-st.title("langchain-streamlit-app")
-
 # Agentを作成する関数
 def create_agent_chain():
     chat = ChatOpenAI(
@@ -47,6 +45,8 @@ def create_agent_chain():
 # 一度だけAgentを初期化する
 if "agent_chain" not in st.session_state:
     st.session_state.agent_chain = create_agent_chain()
+    
+st.title("langchain-streamlit-app")
     
 # st.session_stateにmessageがない場合
 if "messages" not in st.session_state:
